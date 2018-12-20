@@ -19,4 +19,5 @@ class StockTest(unittest.TestCase):
 
     def test_negative_price_should_throw_ValueError(self):
         goog = Stock('GOOG')
-        self.assertRaises(ValueError, goog.update, datetime(2014, 2, 13), price=-1)
+        self.assertRaises(ValueError, goog.update,
+                          datetime(2014, 2, 13), price=-1)
