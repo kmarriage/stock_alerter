@@ -7,6 +7,13 @@ class StockTest(unittest.TestCase):
     def setUp(self):
         self.goog = Stock('GOOG')
 
+    def test_increasing_trend_is_true_if_price_increase_for_3_updates(self):
+        timestamps = [datetime(2014, 2, 11), datetime(2014, 2, 12), datetime(2014, 2, 13)]
+        prices = [8, 10, 12]
+        for timestamp, price in zip(timestamps, prices):
+            self.goog.update(timestamp, price)
+        self.assertTrue(self.goog.is_increasing_trend())
+
     def test_price_of_a_new_stock_class_should_be_None(self):
         self.assertIsNone(self.goog.price)
 
