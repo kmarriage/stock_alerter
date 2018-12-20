@@ -20,7 +20,7 @@ class StockTest(unittest.TestCase):
     def test_negative_price_should_throw_ValueError(self):
         goog = Stock('GOOG')
         try:
-            goog.update(datetime(2014, 2, 13), -1)
+            goog.update(datetime(2014, 2, 13), price=-1)
         except ValueError:
             return
         self.fail("ValueError was not raised")
