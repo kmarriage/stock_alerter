@@ -37,7 +37,8 @@ class MovingAverage:
         self.timespan = timespan
 
     def value_on(self, end_date):
-        moving_average_range = self.series.get_closing_price_list(end_date, self.timespan)
+        moving_average_range = \
+            self.series.get_closing_price_list(end_date, self.timespan)
         if len(moving_average_range) < self.timespan:
             raise NotEnoughDataException('Not enough data')
         price_list = [item.value for item in moving_average_range]

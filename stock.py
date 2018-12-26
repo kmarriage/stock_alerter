@@ -58,10 +58,12 @@ class Stock:
         long_term_ma = MovingAverage(self.history, self.LONG_TERM_TIMESPAN)
         short_term_ma = MovingAverage(self.history, self.SHORT_TERM_TIMESPAN)
         try:
-            if self._is_crossover_below_to_above(on_date, short_term_ma, long_term_ma):
+            if self._is_crossover_below_to_above(on_date, short_term_ma,
+                                                 long_term_ma):
                 return StockSignal.buy
 
-            if self._is_crossover_below_to_above(on_date, long_term_ma, short_term_ma):
+            if self._is_crossover_below_to_above(on_date, long_term_ma,
+                                                 short_term_ma):
                 return StockSignal.sell
         except NotEnoughDataException:
             return StockSignal.neutral
